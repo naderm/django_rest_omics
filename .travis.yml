@@ -1,0 +1,21 @@
+language: python
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+
+before_script:
+  - echo "SECRET_KEY = 'TESTING SECRET KEY'" >> django_rest_omics/django_rest_omics/local_settings.py
+
+# command to run tests
+script:
+  - coverage run --source=django_rest_omics setup.py test
+
+# command to notify coveralls
+after_success:
+  - coveralls
