@@ -6,6 +6,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
+import methods.routers
 import proteomics.routers
 import phosphoproteomics.routers
 
