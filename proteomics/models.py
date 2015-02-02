@@ -31,10 +31,24 @@ class MSMethod(PeptideMethod):
 class PeptideDataSet(models.Model):
     method = models.ForeignKey(
         PeptideMethod,
+        relatedname="peptide_dataset",
         help_text="The method used to generate this data set.",
     )
     description = models.TextField(
         help_text="Any extra information associated with this data set.",
+    )
+
+class PeptideDataSource(models.Model):
+    data_set = models.ForeignKey(
+        PeptideDataSet,
+        related_name="datasource",
+        help_text="The data set this source is associated with.",
+    )
+    url = models.TextField(
+        help_text="The URL pointing to this data set.",
+    )
+    description = models.TextField(
+        help_text="A description of this particular data source.",
     )
 
 ### Individual Peptides / Proteins
@@ -47,6 +61,7 @@ class Protein(models.Model):
 class Peptide(models.Model):
     data_set = models.ForeignKey(
         PeptideDataSet,
+        related_name="peptide",
         help_text="The data set this peptide read is associated with.",
     )
     sequence = models.TextField(
