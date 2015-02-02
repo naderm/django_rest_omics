@@ -31,7 +31,7 @@ class MSMethod(PeptideMethod):
 class PeptideDataSet(models.Model):
     method = models.ForeignKey(
         PeptideMethod,
-        relatedname="peptide_dataset",
+        related_name="peptide_dataset",
         help_text="The method used to generate this data set.",
     )
     description = models.TextField(
