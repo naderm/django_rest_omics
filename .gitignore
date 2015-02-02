@@ -8,3 +8,4 @@ share/
 *.pyo
 *~
 django_rest_omics/django_rest_omics/local_settings.py
+*.sqlite3
