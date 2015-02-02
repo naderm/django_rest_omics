@@ -11,7 +11,7 @@ import phosphoproteomics.routers
 
 urlpatterns = [
     url(r"^", include(router.urls)),
-    url(r"^v1/", include(router.urls), namespace="api_v1"),
+    url(r"^v1/", include(router.urls, namespace="api_v1")),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
